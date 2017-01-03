@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div ng-controller="mvcCRUDCtrl">
+    <div class="divList">
+        <br />
+        <br />
+        <p><b><i>User List</i></b></p>
+        <table class="table table-hover">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Name</b></td>
+                <td><b>FName</b></td>
+                <td><b>City</b></td>
+                <td><b>Country</b></td>
+                <td><b>Action</b></td>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>
+                    {{user.Id}}
+                </td>
+                <td>
+                    {{user.Name}}
+                </td>
+                <td>
+                    {{user.FName}}
+                </td>
+                <td>
+                    {{user.City}}
+                </td>
+                <td>
+                    {{user.Country}}
+                </td>
+                <td>
+                    <span ng-click="editUser(user)" class="btn btn-primary">Edit</span>
+                    <span ng-click="deleteUser(user)" class="btn btn-danger">Delete</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <span ng-click="AddUserDiv()" class="btn btn-primary">
+        Add User
+    </span>
+    <div ng-show="divUser">
+        <p class="divHead"></p>
+        <table class="table">
+            <tr>
+                <td><b><i>{{Action}} User</i></b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Id</b></td>
+                <td>
+                    <input type="text" disabled="disabled" ng-model="userId" />
+                </td>
+                <td><b>Name</b></td>
+                <td>
+                    <input type="text" ng-model="userName" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>FName</b></td>
+                <td>
+                    <input type="text" ng-model="userFName" />
+                </td>
+                <td><b>City</b></td>
+                <td>
+                    <input type="text" ng-model="userCity" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Country</b></td>
+                <td>
+                    <input type="text" ng-model="userCountry" />
+                </td>
+                <td></td>
+                <td>
+                    <input type="button" class="btn btn-primary" value="Save" ng-click="AddUpdateUser()" />
+                    <input type="button" class="btn btn-danger" value="Cancel" ng-click="Cancel()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
